@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import NavBar from "./components/navbar";
-import {Route} from "react-router-dom";
+import {Route,Switch} from "react-router-dom";
 import Products from "./components/products";
 import Posts from "./components/posts";
 import Home from "./components/home";
@@ -9,16 +9,24 @@ import ProductDetails from "./components/productDetails";
 import NotFound from "./components/notFound";
 import "./App.css";
 
+//Register our routes, means we need to tell react what component should be rendered based on a given url.
+//when using <switch></switch>  
+
+//Route component is a wrapper around the component that we pass and if the path matches,
+// it will render the component and it will automatically injects these props(history, match, location,) into the component.
+
 class App extends Component {
   render() {
     return (
       <div>
         <NavBar />
         <div className = "content">
-          <Route path="/products" component={Products}/>
-          <Route path="/posts" component={Posts}/>
-          <Route path="/admin" component={Dashboard}/>
-          <Route path="/" exact component={Home}/>
+          <Switch>
+            <Route path="/products" component={Products}/>
+            <Route path="/posts" component={Posts}/>
+            <Route path="/admin" component={Dashboard}/>
+            <Route path="/" component={Home}/>
+          </Switch>
   
         </div>
       </div>
