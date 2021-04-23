@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import NavBar from "./components/navbar";
-import {Route,Switch} from "react-router-dom";
+import {Redirect, Route,Switch} from "react-router-dom";
 import Products from "./components/products";
 import Posts from "./components/posts";
 import Home from "./components/home";
@@ -29,7 +29,11 @@ class App extends Component {
             <Route path="/products" render={(props) => <Products sort="newest" {...props} />} /> {/*here we are passing the Route props as well as our own props to our component*/}
             <Route path="/posts/:year?/:month?" component={Posts}/> //? says the parameters are optional, this is a part of regular expression of Js
             <Route path="/admin" component={Dashboard}/>
-            <Route path="/" component={Home}/>
+            <Redirect from='/messages' to='/posts' />
+            <Route path="/not-found" component={NotFound}/>
+            <Route path="/" exact component={Home}/>
+            <Redirect to='/not-found'/>
+
           </Switch>
   
         </div>
