@@ -27,7 +27,7 @@ class App extends Component {
             
             <Route path='/products/:id' component={ProductDetails} />
             <Route path="/products" render={(props) => <Products sort="newest" {...props} />} /> {/*here we are passing the Route props as well as our own props to our component*/}
-            <Route path="/posts" component={Posts}/>
+            <Route path="/posts/:year?/:month?" component={Posts}/> //? says the parameters are optional, this is a part of regular expression of Js
             <Route path="/admin" component={Dashboard}/>
             <Route path="/" component={Home}/>
           </Switch>
