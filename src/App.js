@@ -24,6 +24,8 @@ class App extends Component {
           <Switch>
             {/* <Route path="/products" component={Products}/> */}
             {/* <Route path="/products" render={() => <Products sort="newest" />} /> passing our own props to the component,here our componet overrides the components provided by Route component  */}
+            
+            <Route path='/products/:id' component={ProductDetails} />
             <Route path="/products" render={(props) => <Products sort="newest" {...props} />} /> {/*here we are passing the Route props as well as our own props to our component*/}
             <Route path="/posts" component={Posts}/>
             <Route path="/admin" component={Dashboard}/>
